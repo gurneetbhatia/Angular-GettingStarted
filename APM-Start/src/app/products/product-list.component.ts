@@ -19,7 +19,6 @@ export class ProductListComponent implements OnInit {
     set listFilter(value: string) {
         this._listFilter = value;
         this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
-        console.log(this.filteredProducts);
     }
 
     filteredProducts: IProduct[];
@@ -66,6 +65,10 @@ export class ProductListComponent implements OnInit {
 
     toggleImage(): void {
         this.showImage = !this.showImage;
+    }
+
+    onRatingClicked(message: string): void {
+        this.pageTitle = 'Product List: ' + message;
     }
 
     ngOnInit(): void {
